@@ -9,14 +9,12 @@ import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping("/v0")
 public class SaleController {
 
     private final SaleRepository saleRepository;
@@ -27,14 +25,14 @@ public class SaleController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/s/sale")
-    public List<Sale> findAll() {
+    @GetMapping("/v0/s/sale")
+    public List<Sale> findSales() {
         return saleRepository.findAllByOrderByDateAsc();
     }
 
-    @PostMapping("/sale")
+    @PostMapping("/v0/sale")
     @ResponseStatus(HttpStatus.CREATED)
-    public Sale create(
+    public Sale createSale(
             @RequestParam Double price,
             @RequestParam(required = false) UUID userId
     ) {
@@ -43,7 +41,6 @@ public class SaleController {
         }
 
         AppUser user = null;
-
         if (userId != null) {
             user = userRepository.findById(userId)
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
