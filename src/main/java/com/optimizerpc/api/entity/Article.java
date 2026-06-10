@@ -35,6 +35,9 @@ public class Article {
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    private String pollaEnormeConRabo;
+    
+
     public UUID getId() {
         return id;
     }

@@ -20,19 +20,19 @@ public class AppConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("*")
+        registry.addMapping("/**") // Permitir CORS para todas las rutas
+                .allowedOrigins("*")// Permitir todas las fuentes de origen
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*");
+                .allowedHeaders("*"); // Permitir todos los encabezados
     }
 
-    @Bean
+    @Bean 
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    CommandLineRunner initData(
+    CommandLineRunner initData( //arranca/crea los datos iniciales de la aplicacion cuando es por primera vez, cuando arranque la app
             AppUserRepository userRepository,
             CategoryRepository categoryRepository,
             ArticleRepository articleRepository,

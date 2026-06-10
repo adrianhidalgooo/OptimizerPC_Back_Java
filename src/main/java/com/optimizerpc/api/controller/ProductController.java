@@ -33,7 +33,7 @@ public class ProductController {
         return categoryRepository.findAll();
     }
 
-    @GetMapping("/v0/s/article")
+    @GetMapping("/v0/s/article") //buscar productos
     public List<Article> findArticles(@RequestParam(required = false) String search) {
         if (search == null || search.isBlank()) {
             return articleRepository.findAllByOrderByCreatedAtDesc();
@@ -42,7 +42,7 @@ public class ProductController {
         return articleRepository.findByNameContainingIgnoreCaseOrderByCreatedAtDesc(search);
     }
 
-    @PostMapping("/v0/article")
+    @PostMapping("/v0/article")  //crear producto
     @ResponseStatus(HttpStatus.CREATED)
     public Article createArticle(
             @RequestParam UUID categoryId,
