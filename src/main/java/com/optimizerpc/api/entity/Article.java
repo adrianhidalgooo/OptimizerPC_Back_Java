@@ -34,7 +34,7 @@ public class Article {
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
-    
+
 
     public UUID getId() {
         return id;

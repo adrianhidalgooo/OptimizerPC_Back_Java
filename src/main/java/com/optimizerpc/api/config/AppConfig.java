@@ -18,7 +18,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class AppConfig implements WebMvcConfigurer {
 
-    @Override
+    @Override  //la que permite los apaños de abajo
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Permitir CORS para todas las rutas
                 .allowedOrigins("*")// Permitir todas las fuentes de origen

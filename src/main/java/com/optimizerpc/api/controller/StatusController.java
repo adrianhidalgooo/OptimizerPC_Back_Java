@@ -11,7 +11,7 @@ public class StatusController {
     public Map<String, String> home() {
         return Map.of(
                 "name", "Optimizer PC Java API",
-                "status", "ok"
+                "status", "esto va perfecccto"
         );
     }
 }
