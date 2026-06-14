@@ -10,8 +10,8 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Entity
-@Table(name = "app_users")
+@Entity // clase importante en la BBDD
+@Table(name = "app_users") // nombre de la tabla en la BBDD obviooo
 public class AppUser {
 
     @Id
